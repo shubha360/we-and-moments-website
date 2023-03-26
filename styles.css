@@ -55,6 +55,7 @@ button {
     font-weight: 700;
     color: white;
     box-shadow: 0 5px 3px 0 rgba(0, 0, 0, 0.1);
+    white-space: nowrap;
 }
 
 header {
@@ -74,8 +75,6 @@ header h2 {
 
 header nav {
     display: flex;
-    width: 100%;
-    justify-content: flex-end;
     align-items: center;
 }
 
@@ -86,7 +85,7 @@ header nav ul {
 header nav li {
     list-style-type: none;
     font-size: 2rem;
-    margin: 0 15px;
+    margin-right: 25px;
 }
 
 header nav a {
@@ -94,50 +93,49 @@ header nav a {
     text-decoration: none;
 }
 
-header nav a:hover {
+header nav a:hover,
+header nav a:active,
+header nav a:focus {
     border-bottom: 2px solid var(--primary-color);
 }
 
 #home {
     display: flex;
+    justify-content: center;
     padding: 100px 15%;
     height: 100vh;
+    column-gap: 20%;
 }
 
 #home .left {
     display: flex;
-    align-items: center;
-    padding-right: 20%;
+    align-items: center;    
 }
 
 #home .left h1 span {
     color: var(--primary-color);
     border-bottom: 3px solid var(--primary-color);
     padding-bottom: 5px;
+    white-space: nowrap;
 }
 
 #home .left p {
     text-align: justify;
-    /* font-style: italic; */
     margin: 30px 0 20px 0;
 }
 
 #home .right {
     display: flex;
+    justify-content: center;
     align-items: center;
 }
 
-
 #home .right .img-cont {
     display: flex;
-    flex-wrap: wrap;    
+    flex-wrap: wrap;
 }
 
-#home .right .img-cont div {
-    width: 100%;
-}
-
-#home .right div img {
+#home .right img {
     width: 200px;
     height: 250px;
     margin: 15px;
@@ -149,8 +147,7 @@ header nav a:hover {
 #why-us {
     display: flex;
     flex-wrap: wrap;
-    padding: 100px 15%;
-    justify-content: center;
+    padding: 100px 15%;    
     background-color: white;
 }
 
@@ -171,7 +168,7 @@ header nav a:hover {
 
 #why-us .text-cont {
     display: flex;
-    align-items: center;
+    flex-direction: row-reverse;
     column-gap: 50px;
     margin-top: 30px;
 }
@@ -182,6 +179,10 @@ header nav a:hover {
 
 #why-us .text-cont p {
     text-align: right;
+}
+
+#why-us .text-cont h2 {
+    white-space: nowrap;
 }
 
 #why-us .text-cont .top {
@@ -215,9 +216,10 @@ header nav a:hover {
     animation-name: cardHoverAnim-Out;
     animation-duration: 600ms;
     background-color: white;
+    padding-right: 20px;
 }
 
-#why-us .card-cont .card:hover {
+#why-us .card-cont .card:hover, #why-us .card-cont .card:active, #why-us .card-cont .card:focus {
     animation-name: cardHoverAnim-In;
     animation-duration: 0.6s;
     background-color: var(--background_1);
@@ -265,11 +267,10 @@ header nav a:hover {
 }
 
 #services .middle {
-    width: 50%;
     border-top: 5px dotted white;
     border-bottom: 5px dotted white;
-    padding: 30px 0;
-    margin: 0 50px;
+    padding: 30px 3%;
+    margin: 0 20px;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -322,7 +323,7 @@ header nav a:hover {
     filter: grayscale(100%) blur(2px);
 }
 
-#services .service div:hover {
+#services .service div:hover, #services .service div:active, #services .service div:focus {
     animation-name: services-bg-in;
     animation-duration: 0.6s;
     filter: grayscale(0%) blur(0px);
@@ -385,12 +386,18 @@ header nav a:hover {
 
 #owner {
     padding: 100px 20% 0 20%;
-    /* background-color: white; */
     display: flex;
+    justify-content: center;
+    column-gap: 100px;
 }
 
 #owner .left {
     display: flex;
+}
+
+#owner .left img {
+    width: 300px;
+    height: 450px;
 }
 
 #owner .left h4 {
@@ -403,10 +410,6 @@ header nav a:hover {
 
 #owner .left h4 span {
     font-weight: bold;
-}
-
-#owner .right {
-    margin-left: 100px;
 }
 
 #owner .right h3 {
@@ -429,16 +432,22 @@ header nav a:hover {
     font-size: 2rem;
 }
 
+#owner .right .socials {
+    margin-bottom: 30px;
+}
+
 footer .top-pannel {
     background-color: var(--footerbg-top);
     padding: 50px 0;
     width: 100%;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     column-gap: 10%;
 }
 
 footer .top-pannel .left h2 {
+    width: 100%;
     font-family: 'Caveat', cursive;
     font-size: 4rem;
     color: white;
@@ -498,7 +507,9 @@ footer .top-pannel .right .link a {
     animation-duration: 0.4s;
 }
 
-footer .top-pannel .right .link a:hover {
+footer .top-pannel .right .link a:hover,
+footer .top-pannel .right .link a:active,
+footer .top-pannel .right .link a:focus {
     animation-name: footer-link-in;
     animation-duration: 0.4s;
     color: var(--primary-color);
@@ -539,6 +550,8 @@ footer .bottom-pannel p {
 
 .socials {
     margin-top: 10px;
+    display: flex;
+    align-items: center;
 }
 
 .socials svg {
@@ -550,7 +563,9 @@ footer .bottom-pannel p {
     animation-duration: 0.6s;
 }
 
-.socials svg:hover {
+.socials svg:hover,
+.socials svg:active,
+.socials svg:focus {
     animation: socials-in;
     animation-duration: 0.3s;
     fill: var(--primary-color);
@@ -571,5 +586,287 @@ footer .bottom-pannel p {
     }
     to {
         fill: gray;
+    }
+}
+
+@media screen and (max-width: 1699px) {
+    #services {
+        padding: 100px 20px;
+    }
+    #services .middle {
+        margin: 0 20px;
+    }
+}
+
+@media screen and (max-width: 1549px) {
+    header {
+        padding: 10px 10%;
+    }
+}
+
+@media screen and (max-width: 1499px) {
+    #services .service {
+        height: 700px;
+    }
+    #services .service div {
+        height: 600px;
+    }
+    #services .service h3 {
+        font-size: 3.5rem;
+    }
+}
+
+@media screen and (max-width: 1399px) {
+    #owner {
+        padding: 100px 10% 0 10%;
+    }
+}
+
+@media screen and (max-width: 1349px) {
+    header {
+        padding: 10px 5%;
+    }
+    #why-us {
+        padding: 100px 10%;
+    }
+}
+
+@media screen and (max-width: 1299px) {
+    #services .middle h2 {
+        font-size: 2.5rem;
+    }
+    #services .middle button {
+        font-size: 1.6rem;
+    }
+    
+    footer .top-pannel {
+        align-items: center;
+    }
+
+    footer .top-pannel .left {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+        margin-bottom: 50px;
+    }
+    footer .top-pannel .left h2 {
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 1199px) {
+    #services {
+        flex-wrap: wrap;
+        row-gap: 50px;
+    }
+    #services .services-cont {
+        width: 100%;
+        justify-content: center;
+    }
+    #services .service {
+        border: none;
+        width: 450px;
+        height: 350px;
+    }
+    #services .service div {
+        height: 100%;
+        margin: 0 20px !important;
+        border: 3px solid white;
+    }
+    #services .service h3 {
+        font-size: 4.5rem;
+    }
+    #services .middle {
+        padding: 30px 50px;
+    }
+}
+
+@media screen and (max-width: 1179px) {
+    header {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    header h2 {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    #home {
+        column-gap: 10%;
+    }
+    #why-us {
+        padding: 100px 5%;
+    }
+}
+
+@media screen and (max-width: 1099px) {
+    #home {
+        flex-wrap: wrap;
+        height: 100%;
+    }
+
+    #home .right {
+        margin-top: 50px;
+        display: block;
+    }
+
+    #home .right .img-cont {
+        flex-wrap: nowrap;
+        margin: 0 !important;
+    }
+
+    #home .right img {        
+        margin: 15px;
+    }
+    #owner {
+        column-gap: 50px;
+        padding: 100px 5% 0 5%;
+    }
+}
+
+@media screen and (max-width: 1049px) {
+    #why-us {
+        padding-top: 50px;
+    }
+    #why-us .divider-cont {
+        justify-content: flex-start;
+    }
+    #why-us .text-cont {
+        flex-wrap: wrap;
+    }
+    #why-us .text-cont p {
+        text-align: justify;
+        margin-top: 20px;
+    }
+    #why-us .card-cont {
+        margin-top: 50px;
+    }
+    #why-us .card-cont .card {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 929px) {
+    #services .service {
+        width: 350px;
+        height: 250px;
+    }
+}
+
+@media screen and (max-width: 899px) {
+    #owner {
+        padding-top: 50px;
+        padding-bottom: 20px;
+        flex-wrap: wrap;
+        row-gap: 50px;
+    }
+    #owner .left h4 {
+        margin-bottom: 0;
+    }
+}
+
+@media screen and (max-width: 749px) {
+    header nav {
+        display: none;
+        visibility: hidden;
+    }
+    #home {
+        padding-top: 50px;
+    }
+}
+
+@media screen and (max-width: 699px) {
+    footer .top-pannel .middle {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-bottom: 50px;
+    }
+}
+
+@media screen and (max-width: 649px) {
+    #services {
+        padding: 70px 10px;
+    }
+    #services .middle h2 {
+        font-size: 2.2rem;
+    }
+    #services .service h3 {
+        font-size: 3.5rem;
+    }
+}
+
+@media screen and (max-width: 579px) {
+    #why-us .card-cont .card {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+@media screen and (max-width: 549px) {
+    #home h1 {
+        font-size: 4rem;
+    }
+}
+
+@media screen and (max-width: 499px) {
+    .divider {
+        width: 60px;
+        border: 2px solid var(--primary-color);
+        border-radius: 100px;
+    }
+    #why-us .text-cont {
+        margin-top: 15px;
+    }
+    #why-us .text-cont .top {
+        font-size: 2.5rem;
+    }
+    
+    #why-us .text-cont .bottom {
+        font-size: 3rem;
+    }
+}
+
+@media screen and (max-width: 469px) {
+    #home {
+        padding: 30px 5% 50px 5%;
+    }
+    #home h1 {
+        font-size: 3rem;
+    }
+    #home p {
+        font-size: 1.6rem;
+    }
+    #home button {
+        font-size: 1.6rem;
+    }
+    #home .right img {
+        width: 150px;
+        height: 180px;
+        margin: 10px;
+    }
+}
+
+@media screen and (max-width: 429px) {
+    footer .top-pannel .middle .contact-cont {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 399px) {
+    #services .services-cont {
+        row-gap: 20px;
+        flex-wrap: wrap;
+    }
+    #services .services-cont .service {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 379px) {
+    header h2 {
+        font-size: 3.5rem;
     }
 }
