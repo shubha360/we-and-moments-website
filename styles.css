@@ -262,7 +262,7 @@ header nav a:focus {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 100px 5%;
+    padding: 100px 3%;
     background-color: var(--primary-color);
 }
 
@@ -294,28 +294,16 @@ header nav a:focus {
 #services .services-cont {
     width: 100%;
     display: flex;
+    justify-content: space-between;
 }
 
 #services .service {
     display: flex;
-    align-items: center;
-    width: 100%;
-    height: 850px;
-    margin-left: -3px;
-    border-left: 3px solid white;
-    border-right: 3px solid white;
-}
-
-#services .service div {
-    width: 100%;
-    height: 750px;
-    background-position: top;
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: flex;
-    align-items: center;
     justify-content: center;
-    flex-wrap: wrap;
+    align-items: center;
+    width: 49%;
+    height: 750px;
+    border: 5px solid white;
     cursor: pointer;
 
     animation-name: services-bg-out;
@@ -323,7 +311,7 @@ header nav a:focus {
     filter: grayscale(100%) blur(2px);
 }
 
-#services .service div:hover, #services .service div:active, #services .service div:focus {
+#services .service:hover, #services .service:active, #services .service:focus {
     animation-name: services-bg-in;
     animation-duration: 0.6s;
     filter: grayscale(0%) blur(0px);
@@ -353,31 +341,32 @@ header nav a:focus {
     color: white;
     font-size: 4.5rem;
     font-family: 'Caveat', cursive;
-    font-weight: bold;    
+    font-weight: bold;
+    padding: 0 10px; 
 }
 
-#services .service.wedding div {
+#services .service.wedding {
     background-image: url(images/Service-bg-wedding.jpg);
     background-repeat: none;
     background-size: cover;
     background-position: left;
 }
 
-#services .service.birthday div {
+#services .service.birthday {
     background-image: url(images/Service-bg-birthday.jpg);
     background-repeat: none;
     background-size: cover;
     background-position: right;
 }
 
-#services .service.corporate div {
+#services .service.corporate {
     background-image: url(images/Service-bg-corporate.jpg);
     background-repeat: none;
     background-size: cover;
     background-position: right;
 }
 
-#services .service.private div {
+#services .service.private {
     background-image: url(images/Service-bg-private.jpg);
     background-repeat: none;
     background-size: cover;
@@ -638,6 +627,28 @@ footer .bottom-pannel p {
     #services .middle button {
         font-size: 1.6rem;
     }
+    #services {
+        flex-wrap: wrap;
+        row-gap: 50px;
+    }
+    #services .services-cont {
+        width: 100%;
+        justify-content: center;
+    }
+    #services .service {
+        border: none;
+        width: 450px;
+        height: 350px;
+        margin: 0 20px !important;
+        border: 3px solid white;
+    }
+    
+    #services .service h3 {
+        font-size: 4.5rem;
+    }
+    #services .middle {
+        padding: 30px 50px;
+    }
     
     footer .top-pannel {
         align-items: center;
@@ -652,33 +663,6 @@ footer .bottom-pannel p {
     }
     footer .top-pannel .left h2 {
         text-align: center;
-    }
-}
-
-@media screen and (max-width: 1199px) {
-    #services {
-        flex-wrap: wrap;
-        row-gap: 50px;
-    }
-    #services .services-cont {
-        width: 100%;
-        justify-content: center;
-    }
-    #services .service {
-        border: none;
-        width: 450px;
-        height: 350px;
-    }
-    #services .service div {
-        height: 100%;
-        margin: 0 20px !important;
-        border: 3px solid white;
-    }
-    #services .service h3 {
-        font-size: 4.5rem;
-    }
-    #services .middle {
-        padding: 30px 50px;
     }
 }
 
@@ -744,13 +728,6 @@ footer .bottom-pannel p {
     }
     #why-us .card-cont .card {
         width: 50%;
-    }
-}
-
-@media screen and (max-width: 929px) {
-    #services .service {
-        width: 350px;
-        height: 250px;
     }
 }
 
@@ -847,21 +824,20 @@ footer .bottom-pannel p {
         height: 180px;
         margin: 10px;
     }
-}
-
-@media screen and (max-width: 429px) {
-    footer .top-pannel .middle .contact-cont {
-        width: 90%;
-    }
-}
-
-@media screen and (max-width: 399px) {
+    
     #services .services-cont {
         row-gap: 20px;
         flex-wrap: wrap;
     }
     #services .services-cont .service {
         width: 100%;
+        height: 300px;
+    }
+}
+
+@media screen and (max-width: 429px) {
+    footer .top-pannel .middle .contact-cont {
+        width: 90%;
     }
 }
 
