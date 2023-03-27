@@ -1,6 +1,6 @@
 :root {
     --primary-color: #C70039;
-    --background_1: rgb(255,222,231);
+    --background_1: #ffdee7;
     --extra-color_1: #f0f0f0;
     --text-color: #333333;
     --footerbg-top: #272727;
@@ -56,6 +56,39 @@ button {
     color: white;
     box-shadow: 0 5px 3px 0 rgba(0, 0, 0, 0.1);
     white-space: nowrap;
+}
+
+.revealY {
+    position: relative;
+    transform: translateY(150px);
+    opacity: 0;
+    transition: 2s all ease;
+}
+.revealY.active {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.revealXLeft {
+    position: relative;
+    transform: translateX(-150px);
+    opacity: 0;
+    transition: 2s all ease;
+}
+.revealXLeft.active {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.revealXRight {
+    position: relative;
+    transform: translateX(150px);
+    opacity: 0;
+    transition: 2s all ease;
+}
+.revealXRight.active {
+    transform: translateX(0);
+    opacity: 1;
 }
 
 header {
@@ -147,8 +180,13 @@ header nav a:focus {
 #why-us {
     display: flex;
     flex-wrap: wrap;
-    padding: 100px 15%;    
-    background-color: white;
+    padding: 100px 15%;
+
+    background-color: #ffffff;
+    opacity: 1;
+    background-image:  radial-gradient(#ffdee7 2px, transparent 2px), radial-gradient(#ffdee7 2px, #ffffff 2px);
+    background-size: 80px 80px;
+    background-position: 0 0,40px 40px;
 }
 
 #why-us > * {
@@ -213,15 +251,14 @@ header nav a:focus {
     cursor: pointer;
     margin-top: -1px;
     margin-left: -1px;
-    animation-name: cardHoverAnim-Out;
-    animation-duration: 600ms;
     background-color: white;
     padding-right: 20px;
+    transition-property: background-color;
+    transition-duration: 0.4s;
+    transition-timing-function: ease-in-out;
 }
 
 #why-us .card-cont .card:hover, #why-us .card-cont .card:active, #why-us .card-cont .card:focus {
-    animation-name: cardHoverAnim-In;
-    animation-duration: 0.6s;
     background-color: var(--background_1);
 }
 
@@ -233,29 +270,10 @@ header nav a:focus {
 #why-us .card-cont .card h3 {
     font-size: 1.8rem;
     margin-bottom: 10px;
-    /* color: var(--primary-color); */
 }
 
 #why-us .card-cont .card p {
     font-size: 1.6rem;
-}
-
-@keyframes cardHoverAnim-In {
-    from {
-        background-color: white;
-    }
-    to {
-        background: var(--background_1);
-    }
-}
-
-@keyframes cardHoverAnim-Out {
-    from {
-        background-color: var(--background_1);
-    }
-    to {
-        background: white;
-    }
 }
 
 #services {
@@ -305,34 +323,14 @@ header nav a:focus {
     height: 750px;
     border: 5px solid white;
     cursor: pointer;
-
-    animation-name: services-bg-out;
-    animation-duration: 0.6s;
     filter: grayscale(100%) blur(2px);
+    transition-property: filter;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in-out;
 }
 
 #services .service:hover, #services .service:active, #services .service:focus {
-    animation-name: services-bg-in;
-    animation-duration: 0.6s;
     filter: grayscale(0%) blur(0px);
-}
-
-@keyframes services-bg-in {
-    from {
-        filter: grayscale(100%) blur(2px);
-    }
-    to {
-        filter: grayscale(0%) blur(0px);
-    }
-}
-
-@keyframes services-bg-out {
-    from {
-        filter: grayscale(0%) blur(0px);
-    }
-    to {
-        filter: grayscale(100%) blur(2px);
-    }
 }
 
 #services .service h3 {
@@ -371,6 +369,64 @@ header nav a:focus {
     background-repeat: none;
     background-size: cover;
     background-position: center;
+}
+
+#testimonials {
+    background-image: url(images/testimonials-bg.jpg), linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8));
+    background-blend-mode: overlay;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    padding: 100px 15%;
+}
+
+#testimonials h2 {
+    text-align: center;
+    font-size: 4rem;
+    color: white;
+}
+
+#testimonials .review-cont {
+    display: flex;
+    margin-top: 100px;
+}
+
+#testimonials .review-card {
+    background-color: white;
+    width: 350px;
+    height: 250px;
+    border-radius: 10px;
+    box-shadow: 0 5px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+#testimonials .review-card .top {
+    display: flex;
+    padding: 15px 0 0 20px;
+    column-gap: 15px;
+    align-items: center;
+}
+
+#testimonials .review-card .top img {
+    width: 60px;
+    border: 2px solid black;
+    border-radius: 50%;
+}
+
+#testimonials .review-card .top .text h4 {
+    font-size: 2rem;
+}
+
+#testimonials .review-card .top .text p {
+    font-size: 1.6rem;
+}
+
+#testimonials .review-card .bottom {
+    padding: 10px 20px;
+}
+
+#testimonials .review-card .bottom p {
+    font-size: 1.6rem;
+    text-align: justify;
 }
 
 #owner {
@@ -492,39 +548,14 @@ footer .top-pannel .right .link a {
     font-size: 1.8rem;
     color: gray;
     text-decoration: none;
-    animation-name: footer-link-out;
-    animation-duration: 0.4s;
+    transition: all 0.4s ease-out;
 }
 
 footer .top-pannel .right .link a:hover,
 footer .top-pannel .right .link a:active,
 footer .top-pannel .right .link a:focus {
-    animation-name: footer-link-in;
-    animation-duration: 0.4s;
     color: var(--primary-color);
     margin-left: 10px;
-}
-
-@keyframes footer-link-in {
-    from {
-        color: gray;
-        margin-left: 0px;
-    }
-    to {
-        color: var(--primary-color);
-        margin-left: 10px;
-    }
-}
-
-@keyframes footer-link-out {
-    from {
-        color: var(--primary-color);
-        margin-left: 10px;
-    }
-    to {
-        color: gray;
-        margin-left: 0px;
-    }
 }
 
 footer .bottom-pannel {
@@ -548,34 +579,13 @@ footer .bottom-pannel p {
     width: 25px;
     margin-right: 8px;
     fill: gray;
-    animation: socials-out;
-    animation-duration: 0.6s;
+    transition: fill 0.3s ease-out;
 }
 
 .socials svg:hover,
 .socials svg:active,
 .socials svg:focus {
-    animation: socials-in;
-    animation-duration: 0.3s;
     fill: var(--primary-color);
-}
-
-@keyframes socials-in {
-    from {
-        fill: gray;
-    }
-    to {
-        fill: var(--primary-color);
-    }
-}
-
-@keyframes socials-out {
-    from {
-        fill: var(--primary-color);
-    }
-    to {
-        fill: gray;
-    }
 }
 
 @media screen and (max-width: 1699px) {
