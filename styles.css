@@ -372,7 +372,7 @@ header nav a:focus {
 }
 
 #testimonials {
-    background-image: url(images/testimonials-bg.jpg), linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8));
+    background-image: url(images/testimonials-bg.jpg), linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5));
     background-blend-mode: overlay;
     background-repeat: no-repeat;
     background-position: center;
@@ -380,30 +380,67 @@ header nav a:focus {
     padding: 100px 15%;
 }
 
+#testimonials * {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#testimonials h3 {
+    text-align: center;
+    color: gold;
+    font-size: 4rem;
+    font-weight: 500;
+}
+
 #testimonials h2 {
     text-align: center;
-    font-size: 4rem;
+    font-size: 5rem;
+    font-weight: 500;
+    letter-spacing: 5px;
     color: white;
+    margin: 20px;
 }
 
 #testimonials .review-cont {
     display: flex;
-    margin-top: 100px;
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 50px;
+    column-gap: 5%;
+    margin: 100px 20px 0 20px;
 }
 
 #testimonials .review-card {
     background-color: white;
     width: 350px;
-    height: 250px;
+    height: 300px;
     border-radius: 10px;
     box-shadow: 0 5px 3px 0 rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+#testimonials .review-card.one {
+    background-color: #ffffff;
+    opacity: 1;
+    background-image: repeating-radial-gradient( circle at 0 0, transparent 0, #ffffff 10px ), repeating-linear-gradient( #ffedde55, #ffedde );
+}
+
+#testimonials .review-card.two {
+    background-color: #ffffff;
+    opacity: 1;
+    background-image: repeating-radial-gradient( circle at 0 0, transparent 0, #ffffff 10px ), repeating-linear-gradient( #e3ffde55, #e3ffde );
+}
+
+#testimonials .review-card.three {
+    background-color: #ffffff;
+    opacity: 1;
+    background-image: repeating-radial-gradient( circle at 0 0, transparent 0, #ffffff 10px ), repeating-linear-gradient( #def3ff55, #def3ff );
 }
 
 #testimonials .review-card .top {
     display: flex;
-    padding: 15px 0 0 20px;
+    padding: 15px 20px;
     column-gap: 15px;
-    align-items: center;
+    align-items: center;    
 }
 
 #testimonials .review-card .top img {
@@ -421,11 +458,13 @@ header nav a:focus {
 }
 
 #testimonials .review-card .bottom {
-    padding: 10px 20px;
+    padding: 0 20px;
 }
 
 #testimonials .review-card .bottom p {
+    overflow: auto;
     font-size: 1.6rem;
+    font-weight: 500;
     text-align: justify;
 }
 
@@ -596,6 +635,13 @@ footer .bottom-pannel p {
         margin: 0 20px;
     }
 }
+
+@media screen and (max-width: 1649px) {
+    #testimonials {
+        padding: 100px 2%;
+    }
+}
+
 
 @media screen and (max-width: 1549px) {
     header {
