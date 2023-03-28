@@ -477,6 +477,7 @@ header nav a:focus {
 
 #owner .left {
     display: flex;
+    align-items: flex-end;
 }
 
 #owner .left img {
@@ -485,9 +486,9 @@ header nav a:focus {
 }
 
 #owner .left h4 {
-    writing-mode: sideways-lr;
-    margin-bottom: 30px;
-    margin-right: 10px;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    margin-bottom: 20px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 2rem;
 }
